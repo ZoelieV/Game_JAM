@@ -3,11 +3,15 @@ using UnityEngine.SceneManagement;
 
 public class ChangeSceneOnClick : MonoBehaviour
 {
-    public string sceneToLoad; // Nom de la scène à charger
+    public string sceneToLoad;
+    public SpriteRenderer targetSprite;
 
     private void OnMouseDown()
     {
-        // Charger la nouvelle scène
-        SceneManager.LoadScene(sceneToLoad);
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null && sr.sprite == targetSprite.sprite)
+        {
+            SceneManager.LoadScene(sceneToLoad);
+        }
     }
 }

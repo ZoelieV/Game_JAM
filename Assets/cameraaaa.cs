@@ -1,28 +1,22 @@
 using UnityEngine;
 
-public class DraggableSprite : MonoBehaviour
+public class CameraController : MonoBehaviour
 {
-    private bool isDragging = false;
-    private Vector3 offset;
-
-    void OnMouseDown()
-    {
-        isDragging = true;
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f));
-    }
-
-    void OnMouseUp()
-    {
-        isDragging = false;
-    }
+    public float sensitivity = 2.0f;
+    public float minX = -10.0f;
+    public float maxX = 10.0f;
+    public float minY = -5.0f;
+    public float maxY = 5.0f;
 
     void Update()
     {
-        if (isDragging)
-        {
-            Vector3 cursorScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10.0f);
-            Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorScreenPoint) + offset;
-            transform.position = cursorPosition;
-        }
+        float horizontalInput = -Input.GetAxis("Horizontal") * sensitivity * Time.deltaTime;
+        float verticalInput = -Input.GetAxis("Vertical") * sensitivity * Time.deltaTime;
+
+        Vector3 newPosition = transform.position + new Vector3(horizontalInput, verticalInput, 0);
+        newPosition.x = Mathf.Clamp(newPosition.x, minX, maxX);
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        transform.position = newPosition;
     }
 }
