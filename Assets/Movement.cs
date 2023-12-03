@@ -4,45 +4,42 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    // public Sprite Up;
-    // public Sprite Down;
-    // public Sprite Right;
-    // public Sprite Left;
     public float speed;
     public float jump;
     private Rigidbody2D _rb;
+    private Animator _anim;
     bool grounded;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Vector3 move;
 
-        if (Input.GetKey(KeyCode.W) && grounded)
-        {
-            // GetComponent<SpriteRenderer>().sprite = Up;
+        if (Input.GetKey(KeyCode.W) && grounded) {
             _rb.AddForce(new Vector2(_rb.velocity.x, jump * 10));
         }
-        if (Input.GetKey(KeyCode.A))
-        {
-            // GetComponent<SpriteRenderer>().sprite = Left;
+        if (Input.GetKey(KeyCode.A)) {
             move = new Vector2(speed * Time.deltaTime, 0);
+            if (transform.localScale.x > 0)
+                transform.localScale = new Vector3(-1, 1, 1);
+            _anim.SetBool("running", true);
             if ((transform.position + move).x > -9)
                 transform.position -= move;
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            // GetComponent<SpriteRenderer>().sprite = Right;
+        } else if (Input.GetKey(KeyCode.D)) {
             move = new Vector2(speed * Time.deltaTime, 0);
+            if (transform.localScale.x < 0)
+                transform.localScale = new Vector3(1, 1, 1);
+            _anim.SetBool("running", true);
             if ((transform.position + move).x < 9)
                 transform.position += move;
+        } else {
+            _anim.SetBool("running", false);
         }
     }
 
@@ -50,11 +47,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
             grounded = true;
+        if (other.gameObject.CompareTag("Enemy"))
+            _anim.SetBool("Hurt", true);
+
     }
 
     private void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
             grounded = false;
+        if (other.gameObject.CompareTag("Enemy"))
+            _anim.SetBool("Hurt", false);
     }
 }
