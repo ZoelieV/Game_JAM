@@ -384,10 +384,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 10
-  minX: -40
-  maxX: 39
-  minY: -21
-  maxY: 21
+  minX: -40.2
+  maxX: 40.2
+  minY: -23
+  maxY: 22.3
 --- !u!61 &785990895
 BoxCollider2D:
   m_ObjectHideFlags: 0

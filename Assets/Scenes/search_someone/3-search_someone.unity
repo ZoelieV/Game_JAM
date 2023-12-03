@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fa2ee7989e26f14dbb2dc46a83b185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: win_where_is_damsweb
+  sceneToLoad: Fight
   targetSprite: {fileID: 1830119298}
 --- !u!114 &1830119301
 MonoBehaviour:

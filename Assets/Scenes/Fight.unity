@@ -974,29 +974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c2770df5f3c5549acfe7e4f037ece1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keys: []
-  timeType: 0
-  time: 3
-  failOnWrongKey: 0
-  pressType: 0
-  keyboardUI: {eventUI: {fileID: 0}, eventText: {fileID: 0}, eventTimerText: {fileID: 0}, eventTimerImage: {fileID: 0}}
-  gamepadUI: {eventUI: {fileID: 0}, eventText: {fileID: 0}, eventTimerText: {fileID: 0}, eventTimerImage: {fileID: 0}}
-  onStart:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  onEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  onSuccess:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  onFail:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
 --- !u!114 &1763904779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,7 +1111,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1345077288, guid: 43c0f3e0fca047a489441cb8a51f6405, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1191,18 +1168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca56f9935385ded4d8cbe0a80a34d05e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slowMotionTimeScale: 0.1
-  isEventStarted: 0
-  eventData: {fileID: 0}
-  isAllButtonsPressed: 0
-  isFail: 0
-  isEnded: 0
-  isPaused: 0
-  wrongKeyPressed: 0
-  currentTime: 0
-  smoothTimeUpdate: 0
-  rememberTimeScale: 0
-  keys: []
 --- !u!212 &2065948129
 SpriteRenderer:
   m_ObjectHideFlags: 0
