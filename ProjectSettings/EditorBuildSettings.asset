@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/tmp_main.unity
+    path: Assets/Scenes/main_where_is_damsweb.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/search_someone/1-search_someone.unity
     guid: 3a16b6f0389572340ab37df0eba1738c
   - enabled: 1
-    path: Assets/Scenes/win_game.unity
+    path: Assets/Scenes/win_where_is_damsweb.unity
     guid: 11437ce6988ed4644b0143edf2a346bd
+  - enabled: 1
+    path: Assets/Scenes/search_someone/2-search_someone.unity
+    guid: 84a8900693a51924c9fb4b58a9cb9c6e
+  - enabled: 1
+    path: Assets/Scenes/search_someone/3-search_someone.unity
+    guid: da95d794f06ad694aa8350b0cf50d5f6
+  - enabled: 1
+    path: Assets/Scenes/lose_where_is_damsweb.unity
+    guid: d14901b5072034e4b8208de9b64e0f9a
   m_configObjects: {}
