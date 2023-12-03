@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     public float jump;
+    private int _life;
     private Rigidbody2D _rb;
     private Animator _anim;
     bool grounded;
@@ -14,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody2D>();
         _anim = GetComponent<Animator>();
+        _life = 1;
     }
 
     // Update is called once per frame
@@ -47,8 +50,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
             grounded = true;
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy")) {
             _anim.SetBool("Hurt", true);
+            if (_life == 0)
+                SceneManager.LoadScene("lose_where_is_damsweb");
+            _life = 0;
+        }
 
     }
 
@@ -56,7 +63,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
             grounded = false;
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy")) 
             _anim.SetBool("Hurt", false);
     }
 }
